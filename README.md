@@ -1,5 +1,7 @@
 # Aura.Di Vocabulary Extension
 
+[![Build Status](https://travis-ci.org/LapazPhp/Aura.Di-ext.svg?branch=master)](https://travis-ci.org/LapazPhp/Aura.Di-ext)
+
 - Optionally `->modifiedBy()` and `->modifiedByScript()` enabled after `$di->lazyNew()` and `$di->newFactory()`.
 - New method `$di->newLocator()` to create pure callable object that returns the service.
 
