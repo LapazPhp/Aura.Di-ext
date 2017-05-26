@@ -2,7 +2,7 @@
 namespace Lapaz\Aura\Di\Injection;
 
 use Aura\Di\Exception\ServiceNotFound;
-use Psr\Container\ContainerInterface;
+use Interop\Container\ContainerInterface;
 
 class LocatorTest extends \PHPUnit_Framework_TestCase
 {

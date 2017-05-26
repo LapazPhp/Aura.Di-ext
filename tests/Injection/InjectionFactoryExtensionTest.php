@@ -2,7 +2,7 @@
 namespace Lapaz\Aura\Di\Injection;
 
 use Aura\Di\Resolver\Resolver;
-use Psr\Container\ContainerInterface;
+use Interop\Container\ContainerInterface;
 
 class InjectionFactoryExtensionTest extends \PHPUnit_Framework_TestCase
 {

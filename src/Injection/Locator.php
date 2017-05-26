@@ -1,7 +1,7 @@
 <?php
 namespace Lapaz\Aura\Di\Injection;
 
-use Psr\Container\ContainerInterface;
+use Interop\Container\ContainerInterface;
 
 class Locator
 {

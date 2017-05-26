@@ -2,7 +2,7 @@
 namespace Lapaz\Aura\Di\Injection;
 
 use Aura\Di\Injection\LazyInterface;
-use Psr\Container\ContainerInterface;
+use Interop\Container\ContainerInterface;
 
 class LazyGetTest extends \PHPUnit_Framework_TestCase
 {
