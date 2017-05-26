@@ -2,8 +2,9 @@
 namespace Lapaz\Aura\Di\Injection;
 
 use Aura\Di\Resolver\Resolver;
+use PHPUnit\Framework\TestCase;
 
-class FactoryTest extends \PHPUnit_Framework_TestCase
+class FactoryTest extends TestCase
 {
     /**
      * @var Resolver

@@ -3,8 +3,9 @@ namespace Lapaz\Aura\Di\Injection;
 
 use Aura\Di\Resolver\Resolver;
 use Interop\Container\ContainerInterface;
+use PHPUnit\Framework\TestCase;
 
-class InjectionFactoryExtensionTest extends \PHPUnit_Framework_TestCase
+class InjectionFactoryExtensionTest extends TestCase
 {
     /**
      * @var Resolver

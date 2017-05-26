@@ -3,8 +3,9 @@ namespace Lapaz\Aura\Di\Injection;
 
 use Aura\Di\Injection\LazyInterface;
 use Aura\Di\Resolver\Resolver;
+use PHPUnit\Framework\TestCase;
 
-class LazyNewTest extends \PHPUnit_Framework_TestCase
+class LazyNewTest extends TestCase
 {
     public function testLaziness()
     {

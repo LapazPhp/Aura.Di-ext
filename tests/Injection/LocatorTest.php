@@ -3,8 +3,9 @@ namespace Lapaz\Aura\Di\Injection;
 
 use Aura\Di\Exception\ServiceNotFound;
 use Interop\Container\ContainerInterface;
+use PHPUnit\Framework\TestCase;
 
-class LocatorTest extends \PHPUnit_Framework_TestCase
+class LocatorTest extends TestCase
 {
     public function testLocateSuccess()
     {

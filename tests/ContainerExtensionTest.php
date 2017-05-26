@@ -8,8 +8,9 @@ use Lapaz\Aura\Di\Injection\Factory;
 use Lapaz\Aura\Di\Injection\LazyGet;
 use Lapaz\Aura\Di\Injection\LazyNew;
 use Lapaz\Aura\Di\Injection\Locator;
+use PHPUnit\Framework\TestCase;
 
-class ContainerExtensionTest extends \PHPUnit_Framework_TestCase
+class ContainerExtensionTest extends TestCase
 {
     protected $mockContainer;
 

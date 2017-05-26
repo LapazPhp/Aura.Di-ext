@@ -3,8 +3,9 @@ namespace Lapaz\Aura\Di\Injection;
 
 use Aura\Di\Injection\LazyInterface;
 use Interop\Container\ContainerInterface;
+use PHPUnit\Framework\TestCase;
 
-class LazyGetTest extends \PHPUnit_Framework_TestCase
+class LazyGetTest extends TestCase
 {
     public function testLaziness()
     {
