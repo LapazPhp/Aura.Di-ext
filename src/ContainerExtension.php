@@ -5,7 +5,9 @@ use Aura\Di\Container;
 use Lapaz\Aura\Di\Injection\Factory;
 use Lapaz\Aura\Di\Injection\InjectionFactoryExtension;
 use Lapaz\Aura\Di\Injection\LazyGet;
+use Lapaz\Aura\Di\Injection\LazyInclude;
 use Lapaz\Aura\Di\Injection\LazyNew;
+use Lapaz\Aura\Di\Injection\LazyRequire;
 use Lapaz\Aura\Di\Injection\Locator;
 
 /**
@@ -122,5 +124,29 @@ class ContainerExtension
     public function newLocator($service)
     {
         return $this->injectionFactoryEx->newLocator($this->targetContainer, $service);
+    }
+
+    /**
+     * Returns a lazy that requires a file.
+     *
+     * @param string $file The file to require.
+     * @param array $params Parameter variables passed to script file.
+     * @return LazyRequire
+     */
+    public function lazyRequire($file, $params = [])
+    {
+        return $this->injectionFactoryEx->newLazyRequire($file, $params);
+    }
+
+    /**
+     * Returns a lazy that includes a file.
+     *
+     * @param string $file The file to include.
+     * @param array $params Parameter variables passed to script file.
+     * @return LazyInclude
+     */
+    public function lazyInclude($file, $params = [])
+    {
+        return $this->injectionFactoryEx->newLazyInclude($file, $params);
     }
 }

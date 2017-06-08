@@ -52,4 +52,20 @@ class InjectionFactoryExtensionTest extends TestCase
 
         $this->assertInstanceOf(Factory::class, $factory);
     }
+
+    public function testNewLazyRequire()
+    {
+        $injectionFactoryEx = new InjectionFactoryExtension($this->mockResolver);
+        $lazyRequire = $injectionFactoryEx->newLazyRequire(__DIR__ . '/scripts/returns-abc.php');
+
+        $this->assertInstanceOf(LazyRequire::class, $lazyRequire);
+    }
+
+    public function testNewLazyInclude()
+    {
+        $injectionFactoryEx = new InjectionFactoryExtension($this->mockResolver);
+        $newLazyInclude = $injectionFactoryEx->newLazyInclude(__DIR__ . '/scripts/returns-abc.php');
+
+        $this->assertInstanceOf(LazyInclude::class, $newLazyInclude);
+    }
 }

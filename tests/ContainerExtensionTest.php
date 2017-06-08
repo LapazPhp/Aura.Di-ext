@@ -6,7 +6,9 @@ use Aura\Di\Injection\InjectionFactory;
 use Aura\Di\Resolver\Resolver;
 use Lapaz\Aura\Di\Injection\Factory;
 use Lapaz\Aura\Di\Injection\LazyGet;
+use Lapaz\Aura\Di\Injection\LazyInclude;
 use Lapaz\Aura\Di\Injection\LazyNew;
+use Lapaz\Aura\Di\Injection\LazyRequire;
 use Lapaz\Aura\Di\Injection\Locator;
 use PHPUnit\Framework\TestCase;
 
@@ -64,5 +66,19 @@ class ContainerExtensionTest extends TestCase
         $this->assertInstanceOf(Factory::class, $factory);
     }
 
+    public function testLazyRequire()
+    {
+        $dix = ContainerExtension::createFrom($this->mockContainer);
+        $lazyRequire = $dix->lazyRequire(__DIR__ . '/Injection/scripts/returns-abc.php');
 
+        $this->assertInstanceOf(LazyRequire::class, $lazyRequire);
+    }
+
+    public function testLazyInclude()
+    {
+        $dix = ContainerExtension::createFrom($this->mockContainer);
+        $lazyInclude = $dix->lazyInclude(__DIR__ . '/Injection/scripts/returns-abc.php');
+
+        $this->assertInstanceOf(LazyInclude::class, $lazyInclude);
+    }
 }

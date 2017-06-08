@@ -4,8 +4,9 @@
 
 - Optionally `->modifiedBy()` and `->modifiedByScript()` enabled after `$di->lazyNew()` and `$di->newFactory()`.
 - New method `->newLocator()` to create pure callable object that returns the service.
+- Optional parameter `$params = []` added to `->lazyRequire()` and `lazyInclude()`.
 
-(`newLocator()` is non lazy version of `lazyGet()`.)
+(`newLocator()` is simply non lazy version of `lazyGet()`.)
 
 Unlike `ContainerConfig::modify()`, every modification is called on demand at the 1st time of `->get()`.
 
@@ -41,3 +42,16 @@ $di->set('routerContainer', $dix->lazyNew(\Aura\Router\RouterContainer::class, [
     // ...
 ));
 ```
+
+### Require/Include
+
+```php
+$dix = ContainerExtension::createFrom($di);
+
+$di->params[\Aura\Dispatcher\Dispatcher::class]['objects'] = $dix->lazyRequire(__DIR__ . '/objects.php', [
+    'di' => $di,
+    // 'anotherConfig' => ...
+]);
+```
+
+You can use `$di` in `objects.php` to return configured lazy instances.

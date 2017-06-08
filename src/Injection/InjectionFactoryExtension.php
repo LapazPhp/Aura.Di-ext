@@ -63,4 +63,29 @@ class InjectionFactoryExtension
     {
         return new LazyGet($container, $service);
     }
+
+
+    /**
+     * Returns a new LazyRequire.
+     *
+     * @param string $file The file to require.
+     * @param array $params Parameter variables passed to script file.
+     * @return LazyRequire
+     */
+    public function newLazyRequire($file, $params = [])
+    {
+        return new LazyRequire($file, $params);
+    }
+
+    /**
+     * Returns a new LazyInclude.
+     *
+     * @param string $file The file to include.
+     * @param array $params Parameter variables passed to script file.
+     * @return LazyInclude
+     */
+    public function newLazyInclude($file, $params = [])
+    {
+        return new LazyInclude($file, $params);
+    }
 }
