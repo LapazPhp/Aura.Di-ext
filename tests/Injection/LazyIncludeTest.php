@@ -49,10 +49,17 @@ class LazyIncludeTest extends TestCase
         $mockBar = $this->createMock(LazyInterface::class);
         $mockBar->method('__invoke')->willReturn('b');
 
-        $lazyArray = new LazyArray([
-            'foo' => $mockFoo,
-            'bar' => $mockBar,
-        ]);
+        if (class_exists(LazyArray::class)) {
+            $lazyArray = new LazyArray([
+                'foo' => $mockFoo,
+                'bar' => $mockBar,
+            ]);
+        } else {
+            $lazyArray = [
+                'foo' => $mockFoo,
+                'bar' => $mockBar,
+            ];
+        }
 
         $lazyInclude = new LazyInclude(__DIR__ . '/scripts/returns-foo-bar.php', $lazyArray);
 

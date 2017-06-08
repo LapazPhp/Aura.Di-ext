@@ -52,6 +52,13 @@ class LazyInclude implements LazyInterface
             $params = $params->__invoke();
         }
 
+        foreach ($params as $k => $v) {
+            while ($v instanceof LazyInterface) {
+                $v = $v->__invoke();
+            }
+            $params[$k] = $v;
+        }
+
         return ScriptRunner::which()->includes($filename)->with($params)->run();
     }
 }

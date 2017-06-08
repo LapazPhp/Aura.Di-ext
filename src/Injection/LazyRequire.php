@@ -50,6 +50,12 @@ class LazyRequire implements LazyInterface
         if ($params instanceof LazyInterface) {
             $params = $params->__invoke();
         }
+        foreach ($params as $k => $v) {
+            while ($v instanceof LazyInterface) {
+                $v = $v->__invoke();
+            }
+            $params[$k] = $v;
+        }
 
         return ScriptRunner::which()->requires($filename)->with($params)->run();
     }
