@@ -33,7 +33,7 @@ use Lapaz\Aura\Di\Injection\Locator;
  * $dix = ContainerExtension::createFrom($di);
  *
  * $lazyRouterContainer = $dix->lazyNew(\Aura\Router\RouterContainer::class, [], [
- *     'setLoggerFactory' => $dix->newLocator('logger),
+ *     'setLoggerFactory' => $dix->newLocator('logger'),
  * ])->modifiedBy(function ($routerContainer) {
  *     $map = $routerContainer->getMap();
  *     $map->get('index', '/');

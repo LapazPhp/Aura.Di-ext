@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/LapazPhp/Aura.Di-ext.svg?branch=master)](https://travis-ci.org/LapazPhp/Aura.Di-ext)
 
 - Optionally `->modifiedBy()` and `->modifiedByScript()` enabled after `$di->lazyNew()` and `$di->newFactory()`.
-- New method `$di->newLocator()` to create pure callable object that returns the service.
+- New method `->newLocator()` to create pure callable object that returns the service.
 
 (`newLocator()` is non lazy version of `lazyGet()`.)
 
@@ -34,7 +34,7 @@ $di->set('routerContainer', $di->lazy(function () use ($di) {
 $dix = ContainerExtension::createFrom($di);
 
 $di->set('routerContainer', $dix->lazyNew(\Aura\Router\RouterContainer::class, [], [
-    'setLoggerFactory' => $dix->newLocator('logger),
+    'setLoggerFactory' => $dix->newLocator('logger'),
 ])->modifiedBy(function ($routerContainer) {
     $map = $routerContainer->getMap();
     $map->get('index', '/');
